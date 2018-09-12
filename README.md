@@ -6,8 +6,6 @@ Open HTML files in a browser.
 ## Development Summary
 ### es5 slider
 Implemented
-- images
-- styling
 - auto slide change
 - customisable intervals
 - controls by arrow keys
@@ -19,6 +17,4 @@ Not implemented
 
 ### es6 slider
 Implemented
-- images
-- styling
 - auto slide change
