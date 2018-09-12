@@ -24,7 +24,9 @@ for (let i = 0; i < sliderData.length; i++) {
 const slides = document.querySelectorAll(".slide");
 let currentSlide = 0;
 const slideInterval = setInterval(() => {
-  slides[currentSlide].classList.remove("visible");
-  currentSlide = (currentSlide + 1) % slides.length;
-  slides[currentSlide].classList.add("visible");
-}, 5000);
+  slides[currentSlide].classList.remove("visible");//Makes current slide invisible
+  currentSlide = (currentSlide + 1) % slides.length;//Calculates which slide will be the new current slide usig modulus
+  slides[currentSlide].classList.add("visible");//Makes current slide visible
+}, 5000);//repeat this process every 5000 ms
+
+
