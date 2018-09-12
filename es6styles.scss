@@ -1,0 +1,31 @@
+
+body {
+    height: 100%;
+}
+
+.slider {
+    width: 500px;
+    height: 500px;
+}
+
+.slide {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 1s;
+    
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+  
+    &.visible {
+      opacity: 1;
+      z-index: 2;
+    }
+}
+
+.photo {
+    width: 100%;
+    max-height: 500px;
+}

@@ -1,14 +1,17 @@
 .container {
-    width: 250px;
+    width: 300px;
     height: auto;
     display: block;
     float: left;
 }
 
 .slider {
+    min-height: 500px;
+    min-width: 500px;
     width: 500px;
     height 500px;
     overflow: hidden;
+    position: relative;
 }
 
 .slide {
@@ -16,7 +19,29 @@
     min-height 500px;
     height: 500px;
     overflow: hidden;
-    transition: opacity .5s ease-in;
+    
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    -webkit-transition: opacity 0s;
+	-moz-transition: opacity 0s;
+	-o-transition: opacity 0s;
+	transition: opacity 0s;
+}
+
+.show {
+    width: 500px;
+    min-height 500px;
+    height: 500px;
+    overflow: hidden;
+    
+    position: absolute;
+    opacity: 1;
+    z-index: 2;
+    -webkit-transition: opacity 0s;
+	-moz-transition: opacity 0s;
+	-o-transition: opacity 0s;
+	transition: opacity 0s;
 }
 
 .photo {

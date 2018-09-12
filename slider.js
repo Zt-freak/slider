@@ -31,7 +31,7 @@ function previousSlide() {
     var slideArray = document.getElementsByClassName("slide");//Gets an array of all slide elements
     
     for (i = 0; i < slideArray.length; i++) {
-       slideArray[i].style.display = "none";//Hides all elements from the slide array
+       slideArray[i].className = 'slide';//Hides all elements from the slide array
     }
     
     index--;//adds one to variable index
@@ -40,7 +40,7 @@ function previousSlide() {
         index = slideArray.length;//changes the value of variable index back after reaching the first image of the slideArray
     }
     
-    slideArray[index-1].style.display = "block";//Makes one slide in the slideArray visible
+    slideArray[index-1].className = 'slide show';//Makes one slide in the slideArray visible
 }
 
 function nextSlide() {
@@ -48,7 +48,7 @@ function nextSlide() {
     var slideArray = document.getElementsByClassName("slide");//Gets an array of all slide elements
     
     for (i = 0; i < slideArray.length; i++) {
-       slideArray[i].style.display = "none";//Hides all elements from the slide array
+       slideArray[i].className = 'slide';//Hides all elements from the slide array
     }
     
     index++;//adds one to variable index
@@ -57,7 +57,7 @@ function nextSlide() {
         index = 1;//changes the value of variable index back after reaching the last image of the slideArray
     }
     
-    slideArray[index-1].style.display = "block";//Makes one slide in the slideArray visible
+    slideArray[index-1].className = 'slide show';//Makes one slide in the slideArray visible
 }
 
 function carousel() {
@@ -67,7 +67,7 @@ function carousel() {
     var slideArray = document.getElementsByClassName("slide");//Gets an array of all slide elements
     
     for (i = 0; i < slideArray.length; i++) {
-       slideArray[i].style.display = "none";//Hides all elements from the slide array
+       slideArray[i].className = 'slide';//Hides all elements from the slide array
     }
     
     index++;//adds one to variable index
@@ -76,7 +76,7 @@ function carousel() {
         index = 1;//changes the value of variable index back after reaching the last image of the slideArray
     }
     
-    slideArray[index-1].style.display = "block";//Makes one slide in the slideArray visible
+    slideArray[index-1].className = 'slide show';//Makes one slide in the slideArray visible
     
     if (getCookie("enableAutoPlay") > 0) {
         if (playing == true) {
@@ -121,6 +121,24 @@ function displaySettings() {
         document.getElementById("controls").innerHTML += "<button id='pauseButton' onclick='checkPause()'>Pause</button>";
     }
     
+    if (getCookie("fadeDuration") > 0) {
+        document.getElementById("fadeDuration").value = getCookie("fadeDuration");
+        
+        //document.getElementsByClassName("slide").style.webkitTransitionDuration = "opacity 1s";
+        //document.getElementsByClassName("slide").style.transitionDuration = "opacity 1s";
+        //document.getElementsByClassName("show").style.webkitTransitionDuration = "opacity 1s";
+        //document.getElementsByClassName("show").style.transitionDuration = "opacity 1s";
+        
+    }
+    else {
+        document.getElementById("fadeDuration").value = "1";
+        
+        //document.getElementsByClassName("slide").style.webkitTransitionDuration = "opacity 1s";
+        //document.getElementsByClassName("slide").style.transitionDuration = "opacity 1s";
+        //document.getElementsByClassName("show").style.webkitTransitionDuration = "opacity 1s";
+        //document.getElementsByClassName("show").style.transitionDuration = "opacity 1s";
+    }
+    
     if (document.getElementById("controls").innerHTML == "") {
         document.getElementById("controls").innerHTML = "<p>There are no control options available. You can enable them in the Slider options.</p>"
     }
@@ -128,6 +146,7 @@ function displaySettings() {
 
 function changeSettings() {
     setCookie("timer", document.getElementById("timer").value, "365");
+    setCookie("fadeDuration", document.getElementById("fadeDuration").value, "365");
     
     if (document.getElementById("enableSkipButtons").checked == true) {
         setCookie("enableSkipButtons", document.getElementById("enableSkipButtons").value, "365");
@@ -191,3 +210,9 @@ function checkPause() {
         carousel();
     }
 };
+
+function forceCheckBox() {
+    setTimeout(function() {
+        document.getElementById("enableFade").checked = false;
+    }, 500);
+}
