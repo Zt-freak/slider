@@ -36,7 +36,12 @@ function nextSlide() {
 }
 function previousSlide() {
     slides[currentSlide].classList.remove("visible");//Makes current slide invisible
-    currentSlide = (currentSlide - 1) % slides.length;//Calculates which slide will be the new current slide usig modulus
+    if (currentSlide == 0) {
+        currentSlide = slides.length - 1;
+    }
+    else {
+        currentSlide = (currentSlide - 1) % slides.length;//Calculates which slide will be the new current slide usig modulus
+    }
     slides[currentSlide].classList.add("visible");//Makes current slide visible
 }
 
