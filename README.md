@@ -18,4 +18,4 @@ Not implemented
 ### es6 slider
 Implemented
 - auto slide change
-- controls by HTML button elements (previous is bugged)
+- controls by HTML button elements
